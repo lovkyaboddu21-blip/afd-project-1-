@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@civic.local",
+      "passwordHash": "$2b$08$r1.x6jvryPGbnY/8kkAnseZMrqpY0zgiITF4W9sR9b5SatcY86TFW",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Citizen Joe",
+      "email": "citizen@example.com",
+      "passwordHash": "$2b$08$5ar/0UEAjFUYsf0vCBGgruMiCPQWvourUkQSWl3VXswzdQIIPXPgu",
+      "role": "citizen"
+    },
+    {
+      "id": 3,
+      "name": "bunny",
+      "email": "bunny@gmail.com",
+      "passwordHash": "$2b$08$pozewlXRxnSDovES6uimZeEdWkNQj.r3tPcLpHH0ekVExWA4jZ0am",
+      "role": "citizen"
+    }
+  ],
+  "complaints": [
+    {
+      "id": "C-2026-873003",
+      "title": "water issues ",
+      "category": "Pothole",
+      "severity": "High (Safety hazard, urgent)",
+      "description": "a",
+      "location": "17.38879, 78.60386",
+      "status": "Pending",
+      "department": "General Municipal",
+      "date": "22/4/2026, 11:19:04 am",
+      "assignedTo": null
+    },
+    {
+      "id": "C-2026-042",
+      "title": "Massive Pipe Burst",
+      "category": "Water leakage",
+      "department": "Water Board",
+      "severity": "High",
+      "status": "In Progress",
+      "date": "Oct 24, 09:30 AM",
+      "location": "North Zone",
+      "description": "Major leak.",
+      "assignedTo": "Officer Michael B."
+    },
+    {
+      "id": "C-2026-041",
+      "title": "Streetlight Out",
+      "category": "Broken streetlight",
+      "department": "Power & Safety",
+      "severity": "Low",
+      "status": "Pending",
+      "date": "Oct 23, 08:15 PM",
+      "location": "South Zone",
+      "description": "Dark alley.",
+      "assignedTo": null
+    },
+    {
+      "id": "C-2026-040",
+      "title": "Pothole on Main",
+      "category": "Potholes",
+      "department": "Public Works",
+      "severity": "Medium",
+      "status": "Resolved",
+      "date": "Oct 22, 10:00 AM",
+      "location": "East Zone",
+      "description": "Deep pothole.",
+      "assignedTo": "Engineer Sarah T."
+    }
+  ]
+}

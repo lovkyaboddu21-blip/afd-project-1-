@@ -1,0 +1,8 @@
+{
+  "name": "CivicConnect",
+  "description": "A civic complaint reporting platform for citizens to report issues and admins to manage and track resolutions.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}
