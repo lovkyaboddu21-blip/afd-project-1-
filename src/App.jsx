@@ -28,8 +28,20 @@ import AdminHotspots from './pages/admin/AdminHotspots';
 
 function ProtectedRoute({ children, role }) {
   const { user } = useAuth();
-  if (!user) return <Navigate to="/login" replace />;
-  if (role && user.role !== role) return <Navigate to={user.role === 'admin' ? '/admin' : '/citizen'} replace />;
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (role && user.role !== role) {
+    return (
+      <Navigate
+        to={user.role === 'admin' ? '/admin' : '/citizen'}
+        replace
+      />
+    );
+  }
+
   return children;
 }
 
@@ -38,38 +50,62 @@ export default function App() {
     <AuthProvider>
       <ThemeProvider>
         <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<RootLayout />}>
-          <Route index element={<Landing />} />
-          <Route path="about" element={<About />} />
-          <Route path="map" element={<PublicMap />} />
-          <Route path="issue/:id" element={<div className="pt-24 min-h-screen bg-slate-50"><ComplaintDetail /></div>} />
-        </Route>
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<RootLayout />}>
+              <Route index element={<Landing />} />
+              <Route path="about" element={<About />} />
+              <Route path="map" element={<PublicMap />} />
+              <Route
+                path="issue/:id"
+                element={
+                  <div className="pt-24 min-h-screen bg-slate-50">
+                    <ComplaintDetail />
+                  </div>
+                }
+              />
+              <Route path="*" element={<Landing />} />
+            </Route>
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+            {/* Auth Routes */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
 
-        {/* Citizen Routes */}
-        <Route path="/citizen" element={<ProtectedRoute role="citizen"><DashboardLayout role="citizen" /></ProtectedRoute>}>
-          <Route index element={<CitizenDashboard />} />
-          <Route path="report" element={<ReportIssue />} />
-          <Route path="complaints" element={<MyComplaints />} />
-          <Route path="complaints/:id" element={<ComplaintDetail />} />
-          <Route path="notifications" element={<Notifications />} />
-          <Route path="*" element={<CitizenDashboard />} />
-        </Route>
+            {/* Citizen Routes */}
+            <Route
+              path="/citizen"
+              element={
+                <ProtectedRoute role="citizen">
+                  <DashboardLayout role="citizen" />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<CitizenDashboard />} />
+              <Route path="report" element={<ReportIssue />} />
+              <Route path="complaints" element={<MyComplaints />} />
+              <Route path="complaints/:id" element={<ComplaintDetail />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="*" element={<CitizenDashboard />} />
+            </Route>
 
-        {/* Admin Routes */}
-        <Route path="/admin" element={<ProtectedRoute role="admin"><DashboardLayout role="admin" /></ProtectedRoute>}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="complaints" element={<AdminComplaints />} />
-          <Route path="complaints/:id" element={<ComplaintDetail />} />
-          <Route path="hotspots" element={<AdminHotspots />} />
-          <Route path="*" element={<AdminDashboard />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            {/* Admin Routes */}
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute role="admin">
+                  <DashboardLayout role="admin" />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<AdminDashboard />} />
+              <Route path="complaints" element={<AdminComplaints />} />
+              <Route path="complaints/:id" element={<ComplaintDetail />} />
+              <Route path="hotspots" element={<AdminHotspots />} />
+              <Route path="*" element={<AdminDashboard />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </ThemeProvider>
     </AuthProvider>
   );
