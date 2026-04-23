@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/afd-project-1/static/css/main.2e662a65.css",
+    "main.js": "/afd-project-1/static/js/main.3798c732.js",
+    "index.html": "/afd-project-1/index.html",
+    "main.2e662a65.css.map": "/afd-project-1/static/css/main.2e662a65.css.map",
+    "main.3798c732.js.map": "/afd-project-1/static/js/main.3798c732.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e662a65.css",
+    "static/js/main.3798c732.js"
+  ]
+}
